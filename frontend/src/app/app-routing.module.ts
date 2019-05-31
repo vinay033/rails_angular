@@ -7,6 +7,10 @@ const routes: Routes = [
     {
       path: 'users',
       component: UserListComponent
+    },
+    {
+      path: 'users/upload',
+      component: UserListComponent
     },          
 ];
 

@@ -50,4 +50,13 @@ export class UserListComponent implements OnInit {
     this.pageSize = this.itemsPerPage*(pageNum - 1);
   }
 
+  public onSubmit(){
+    var path = "users/upload.json?url=" + this.url
+    this.apiService.post(path, this.url).subscribe((r)=>{
+    alert("added!");
+    this.url = "";
+    
+    });
+  }
+
 }

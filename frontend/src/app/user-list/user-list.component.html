@@ -1,3 +1,15 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="">
+      <label for="">Upload Users</label>
+      <div>
+        <input type="text" style="width: 300px" class="form-control" id="upload" required
+                [(ngModel)]="url" name="url">
+      </div>
+      <div>
+        <input type="submit" value="Upload" />
+      </div>
+    </div>
+  </form>
 <div>
 <table class="table">
   <thead>
