@@ -1,0 +1,23 @@
+<div>
+<table class="table">
+  <thead>
+    <tr>
+      <th *ngFor="let column of columns" scope="col">{{column}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let el of rows | slice: pageSize | slice: 0:itemsPerPage">
+      <th scope="row">{{el.id}}</th>
+      <td>{{el.first_name}}</td>
+      <td>{{el.last_name}}</td>
+      <td>{{el.email}}</td>
+    </tr>
+  </tbody>
+</table>
+<ngb-pagination
+  [(page)]="page"
+  [pageSize]="itemsPerPage"
+  [collectionSize]="rows.length"
+  (pageChange)="onPageChange(page)">
+</ngb-pagination>
+</div>
