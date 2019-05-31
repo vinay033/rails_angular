@@ -13,4 +13,20 @@ export class ApiService {
         return this.http.get(endpoint);
 
     }
+
+     // create method 
+    public post(path: string, body: any) {
+
+        var endpoint = this.API_URL + path;
+        return this.http.post(endpoint, body);
+
+    }
+    
+    // delete method    
+    public delete(path: string) {
+
+        var endpoint = this.API_URL + path;
+        return this.http.delete(endpoint);
+
+    }
 }

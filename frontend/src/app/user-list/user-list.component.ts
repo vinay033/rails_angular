@@ -11,7 +11,8 @@ import { User } from '../user';
 export class UserListComponent implements OnInit {
 
   public columns = ['id', 'first_name', 'last_name', 'email'];
-  public rows : Array<User>; 
+  public rows : Array<User>;
+  public url : string;
   public page = 1;
   public itemsPerPage = 10;
   public pageSize : number;
@@ -24,6 +25,23 @@ export class UserListComponent implements OnInit {
       console.log(data);
       this.rows = data;
       console.log(this.rows);
+    });
+  }
+
+  public delete(id:string){
+    console.log("delete : " + id);
+    var path = 'users/' + id;
+    this.apiService.delete(path).subscribe((r)=>{
+
+    this.rows = this.rows.filter((p,i)=>{
+        
+        if(Number(id) === p.id ) 
+        {
+        return false;
+        }
+        return true;
+    },this.rows)
+
     });
   }
 
